@@ -1,0 +1,52 @@
+{
+    "kind": "Commit",
+    "apiVersion": "v1",
+	"metadata": {	//这个属性每个api都有
+		"name":"",
+		"selfLink":"",
+		"uid":"",
+		"resourceVersion":"",
+		"creationTimestamp":"",
+		"labels": {
+			"key":"value"
+		}
+	},
+	"spec":{
+		"images":[	//想要传的镜像，可以有多个，因为一个pod跑的多个container。现阶段我们的服务是一个pod对应一个container？如果是的话，只有一个
+		{
+			"containerName":"",
+			"from":"",
+			"image":"",
+			"imagePushPolicy":"ExistFail" // 如果镜像库中已存在，就失败
+			},
+		{
+			"containerName":"",
+			"from":"",
+			"image":"",
+			"imagePushPolicy"
+			},
+		],
+		"restartPolicy":"OnFaliure", //还可以选"Never"
+		"podName":"",
+		"nodeName":"",
+		"imagePullSecrets":[	//镜像库的secret
+			"name":""
+		],
+	},
+	"status": {
+		"containerCommitStatuses":[ // 各个commmit的状态
+			{
+				"containerName":"",
+				"imageID":"",
+				"phase":"Pending",
+				"failCount":"",
+			},
+			{
+				"containerName":"",
+				"imageID":"",
+				"phase":"Pending",
+				"failCount":"",
+			}
+		]
+	}
+}
